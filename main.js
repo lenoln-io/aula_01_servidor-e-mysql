@@ -25,7 +25,7 @@ function updateSlideCounter() {
 
 // Keyboard navigation
 document.addEventListener("keydown", (e) => {
-	if (e.key === "ArrowRight" || e.key === " ") {
+	if (e.key === "ArrowRight") {
 		nextSlide();
 	} else if (e.key === "ArrowLeft") {
 		previousSlide();
