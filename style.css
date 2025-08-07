@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+body {
+	font-family: "Inter", sans-serif;
+}
+.slide {
+	display: none;
+}
+.slide.active {
+	display: block;
+}
+.code-block {
+	background: #1f2937;
+	color: #f9fafb;
+	font-family: "Courier New", monospace;
+}
+.fade-in {
+	animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.hover-lift:hover {
+	transform: translateY(-2px);
+	transition: all 0.3s ease;
+}

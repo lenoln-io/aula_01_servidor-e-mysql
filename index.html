@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAMPP & MySQL - Programação Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'green-primary': '#10B981',
+                        'green-secondary': '#059669',
+                        'green-light': '#D1FAE5',
+                        'green-dark': '#047857'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-green-50 to-emerald-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-green-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-green-primary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">DB</span>
+                    </div>
+                    <h1 class="text-xl font-semibold text-gray-800">XAMPP & MySQL</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="slideCounter" class="text-sm text-gray-600">1 / 12</span>
+                    <div class="flex space-x-2">
+                        <button onclick="previousSlide()" class="px-3 py-1 bg-green-100 text-green-700 rounded-md hover:bg-green-200 transition-colors">
+                            ← Anterior
+                        </button>
+                        <button onclick="nextSlide()" class="px-3 py-1 bg-green-primary text-white rounded-md hover:bg-green-secondary transition-colors">
+                            Próximo →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slides Container -->
+    <div class="max-w-6xl mx-auto px-6 py-8">
+        
+        <!-- Slide 1: Título -->
+        <div class="slide active fade-in">
+            <div class="text-center py-20">
+                <div class="mb-8">
+                    <div class="w-20 h-20 bg-green-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="text-5xl font-bold text-gray-800 mb-4">Configuração do XAMPP</h1>
+                <h2 class="text-3xl font-medium text-green-primary mb-8">& Introdução ao MySQL</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                    <p class="text-lg text-gray-600 mb-6">Curso Técnico de Informática - 2° Ano</p>
+                    <div class="flex justify-center space-x-8 text-sm text-gray-500">
+                        <span>📚 Programação Web</span>
+                        <span>🔧 PHP & MySQL</span>
+                        <span>⏱️ 1 hora e 40 minutos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Objetivos -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <span class="w-8 h-8 bg-green-primary rounded-lg flex items-center justify-center mr-3">
+                        <span class="text-white font-bold text-sm">🎯</span>
+                    </span>
+                    Objetivos da Aula
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 p-4 bg-green-light rounded-lg hover-lift">
+                            <div class="w-6 h-6 bg-green-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-xs">✓</span>
+                            </div>
+                            <p class="text-gray-700">Compreender a importância dos bancos de dados em aplicações web</p>
+                        </div>
+                        <div class="flex items-start space-x-3 p-4 bg-green-light rounded-lg hover-lift">
+                            <div class="w-6 h-6 bg-green-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-xs">✓</span>
+                            </div>
+                            <p class="text-gray-700">Diferenciar bancos relacionais de não-relacionais</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 p-4 bg-green-light rounded-lg hover-lift">
+                            <div class="w-6 h-6 bg-green-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-xs">✓</span>
+                            </div>
+                            <p class="text-gray-700">Conhecer a estrutura básica do MySQL</p>
+                        </div>
+                        <div class="flex items-start space-x-3 p-4 bg-green-light rounded-lg hover-lift">
+                            <div class="w-6 h-6 bg-green-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-white text-xs">✓</span>
+                            </div>
+                            <p class="text-gray-700">Configurar ambiente XAMPP para desenvolvimento</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: O que são Bancos de Dados -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">O que são Bancos de Dados?</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="bg-green-light p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-semibold text-green-dark mb-3">Definição</h3>
+                            <p class="text-gray-700">Um banco de dados é uma coleção organizada de informações estruturadas, armazenadas eletronicamente em um sistema computacional.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Vantagens dos SGBDs:</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span class="text-gray-700">Controle de acesso e segurança</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span class="text-gray-700">Integridade dos dados</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span class="text-gray-700">Backup e recuperação</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span class="text-gray-700">Acesso simultâneo</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Arquivo vs Banco de Dados</h3>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                                    <h4 class="font-medium text-red-800">📄 Arquivo (Excel)</h4>
+                                    <ul class="text-sm text-red-700 mt-2 space-y-1">
+                                        <li>• Um usuário por vez</li>
+                                        <li>• Sem controle de integridade</li>
+                                        <li>• Limitado em tamanho</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                                    <h4 class="font-medium text-green-800">🗄️ Banco de Dados</h4>
+                                    <ul class="text-sm text-green-700 mt-2 space-y-1">
+                                        <li>• Múltiplos usuários</li>
+                                        <li>• Validação automática</li>
+                                        <li>• Escalável e robusto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Modelo Relacional -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">Modelo Relacional</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-primary mb-4">Conceitos Fundamentais</h3>
+                        <div class="space-y-4">
+                            <div class="bg-green-light p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-dark">📊 Tabelas</h4>
+                                <p class="text-sm text-gray-700 mt-1">Estruturas que organizam dados em linhas e colunas</p>
+                            </div>
+                            <div class="bg-green-light p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-dark">📝 Linhas (Registros)</h4>
+                                <p class="text-sm text-gray-700 mt-1">Cada linha representa uma entrada de dados</p>
+                            </div>
+                            <div class="bg-green-light p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-dark">📋 Colunas (Campos)</h4>
+                                <p class="text-sm text-gray-700 mt-1">Cada coluna representa um atributo específico</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-primary mb-4">Exemplo: Tabela Alunos</h3>
+                        <div class="bg-gray-50 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm">
+                                <thead class="bg-green-primary text-white">
+                                    <tr>
+                                        <th class="px-3 py-2 text-left">ID 🔑</th>
+                                        <th class="px-3 py-2 text-left">Nome</th>
+                                        <th class="px-3 py-2 text-left">Email</th>
+                                        <th class="px-3 py-2 text-left">Turma</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 font-medium">1</td>
+                                        <td class="px-3 py-2">João Silva</td>
+                                        <td class="px-3 py-2">joao@email.com</td>
+                                        <td class="px-3 py-2">2A</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-3 py-2 font-medium">2</td>
+                                        <td class="px-3 py-2">Maria Santos</td>
+                                        <td class="px-3 py-2">maria@email.com</td>
+                                        <td class="px-3 py-2">2B</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-3 py-2 font-medium">3</td>
+                                        <td class="px-3 py-2">Pedro Costa</td>
+                                        <td class="px-3 py-2">pedro@email.com</td>
+                                        <td class="px-3 py-2">2A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-600">
+                            <p><strong>🔑 Chave Primária:</strong> ID (identifica unicamente cada registro)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: MySQL Características -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <span class="text-4xl mr-3">🐬</span>
+                    MySQL - Características
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg hover-lift">
+                        <h3 class="text-lg font-semibold text-green-dark mb-3">📈 Popularidade</h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>• Mais usado no mundo</li>
+                            <li>• Comunidade ativa</li>
+                            <li>• Documentação extensa</li>
+                            <li>• Suporte empresarial</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg hover-lift">
+                        <h3 class="text-lg font-semibold text-blue-700 mb-3">⚡ Performance</h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>• Rápido e eficiente</li>
+                            <li>• Otimizado para web</li>
+                            <li>• Suporte a grandes volumes</li>
+                            <li>• Múltiplos engines</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg hover-lift">
+                        <h3 class="text-lg font-semibold text-purple-700 mb-3">🔧 Integração</h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>• Perfeito com PHP</li>
+                            <li>• Multiplataforma</li>
+                            <li>• APIs nativas</li>
+                            <li>• Fácil configuração</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 bg-green-light p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-green-dark mb-3">💡 Por que MySQL para Web?</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-gray-700 mb-2"><strong>LAMP Stack:</strong> Linux + Apache + MySQL + PHP</p>
+                            <p class="text-gray-700"><strong>Gratuito:</strong> Open source com licença GPL</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 mb-2"><strong>Escalável:</strong> De pequenos sites a grandes aplicações</p>
+                            <p class="text-gray-700"><strong>Confiável:</strong> Usado por Facebook, YouTube, Twitter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: XAMPP Introdução -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                    <span class="text-4xl mr-3">📦</span>
+                    O que é XAMPP?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-semibold text-orange-800 mb-3">Definição</h3>
+                            <p class="text-gray-700">XAMPP é um pacote de software livre que inclui o servidor web Apache, o sistema de gerenciamento de banco de dados MySQL, e as linguagens de script PHP e Perl.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Componentes:</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-red-100 p-3 rounded-lg text-center">
+                                    <div class="text-2xl mb-1">🅰️</div>
+                                    <div class="font-medium text-red-800">Apache</div>
+                                    <div class="text-xs text-red-600">Servidor Web</div>
+                                </div>
+                                <div class="bg-blue-100 p-3 rounded-lg text-center">
+                                    <div class="text-2xl mb-1">🐬</div>
+                                    <div class="font-medium text-blue-800">MySQL</div>
+                                    <div class="text-xs text-blue-600">Banco de Dados</div>
+                                </div>
+                                <div class="bg-purple-100 p-3 rounded-lg text-center">
+                                    <div class="text-2xl mb-1">🐘</div>
+                                    <div class="font-medium text-purple-800">PHP</div>
+                                    <div class="text-xs text-purple-600">Linguagem</div>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-lg text-center">
+                                    <div class="text-2xl mb-1">📊</div>
+                                    <div class="font-medium text-green-800">phpMyAdmin</div>
+                                    <div class="text-xs text-green-600">Interface</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-primary mb-4">Vantagens do XAMPP</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-xl">✅</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">Fácil Instalação</h4>
+                                    <p class="text-sm text-gray-600">Um clique instala tudo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-xl">✅</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">Multiplataforma</h4>
+                                    <p class="text-sm text-gray-600">Windows, Mac, Linux</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-xl">✅</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">Ambiente Completo</h4>
+                                    <p class="text-sm text-gray-600">Tudo que precisa para desenvolver</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-xl">✅</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">Gratuito</h4>
+                                    <p class="text-sm text-gray-600">Open source e sem custos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Instalação XAMPP -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">🛠️ Instalação do XAMPP</h2>
+                <div class="space-y-6">
+                    <div class="grid md:grid-cols-5 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg text-center hover-lift cursor-pointer" onclick="showStep(1)">
+                            <div class="w-8 h-8 bg-green-primary text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+                            <h3 class="font-medium text-green-dark text-sm">Download</h3>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center hover-lift cursor-pointer" onclick="showStep(2)">
+                            <div class="w-8 h-8 bg-green-primary text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+                            <h3 class="font-medium text-green-dark text-sm">Instalação</h3>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center hover-lift cursor-pointer" onclick="showStep(3)">
+                            <div class="w-8 h-8 bg-green-primary text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">3</div>
+                            <h3 class="font-medium text-green-dark text-sm">Inicialização</h3>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center hover-lift cursor-pointer" onclick="showStep(4)">
+                            <div class="w-8 h-8 bg-green-primary text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">4</div>
+                            <h3 class="font-medium text-green-dark text-sm">Teste</h3>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center hover-lift cursor-pointer" onclick="showStep(5)">
+                            <div class="w-8 h-8 bg-green-primary text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">5</div>
+                            <h3 class="font-medium text-green-dark text-sm">phpMyAdmin</h3>
+                        </div>
+                    </div>
+                    
+                    <div id="step-content" class="bg-gray-50 p-6 rounded-lg min-h-64">
+                        <div id="step-1" class="step-detail">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">📥 Passo 1: Download</h3>
+                            <div class="space-y-3">
+                                <p class="text-gray-700">1. Acesse o site oficial: <span class="bg-green-100 px-2 py-1 rounded font-mono text-sm">https://www.apachefriends.org</span></p>
+                                <p class="text-gray-700">2. Clique em "Download" para sua plataforma (Windows/Mac/Linux)</p>
+                                <p class="text-gray-700">3. Escolha a versão mais recente (recomendado: PHP 8.x)</p>
+                                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-4">
+                                    <p class="text-blue-800"><strong>💡 Dica:</strong> O arquivo tem aproximadamente 150MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Primeiro Banco -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">🗄️ Criando o Primeiro Banco</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-primary mb-4">Código SQL</h3>
+                        <div class="code-block p-4 rounded-lg text-sm">
+                            <div class="text-green-400 mb-2">-- Criar banco de dados da biblioteca</div>
+                            <div class="text-blue-300">CREATE DATABASE <span class="text-yellow-300">biblioteca_escolar</span>;</div> <br>
+                            <div class="text-green-400 mb-2">-- Usar o banco criado</div>
+                            <div class="text-blue-300">USE <span class="text-yellow-300">biblioteca_escolar</span>;</div> <br>
+                            <div class="text-green-400 mb-2">-- Criar primeira tabela</div>
+                            <div class="text-blue-300">CREATE TABLE <span class="text-yellow-300">categorias</span> (</div>
+                            <div class="text-yellow-300">id <span class="text-blue-300">INT PRIMARY KEY AUTO_INCREMENT</span>,</div>
+                            <div class="text-yellow-300">nome <span class="text-blue-300">VARCHAR(50) NOT NULL</span>,</div>
+                            <div class="text-yellow-300">descricao <span class="text-blue-300">TEXT</span></div>
+                            );
+                        </div>
+                        <button onclick="copyCode()" class="mt-3 px-4 py-2 bg-green-primary text-white rounded-lg hover:bg-green-secondary transition-colors">
+                            📋 Copiar Código
+                        </button>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-primary mb-4">Explicação do Código</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800">CREATE DATABASE</h4>
+                                <p class="text-sm text-gray-700 mt-1">Cria um novo banco de dados chamado "biblioteca_escolar"</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800">USE</h4>
+                                <p class="text-sm text-gray-700 mt-1">Seleciona o banco para usar nas próximas operações</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800">CREATE TABLE</h4>
+                                <p class="text-sm text-gray-700 mt-1">Cria uma tabela com três campos:</p>
+                                <ul class="text-xs text-gray-600 mt-2 ml-4">
+                                    <li>• <strong>id:</strong> Chave primária auto-incremento</li>
+                                    <li>• <strong>nome:</strong> Texto até 50 caracteres</li>
+                                    <li>• <strong>descricao:</strong> Texto longo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Exercícios Conceituais -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">📝 Exercícios de Fixação</h2>
+                <div class="space-y-6">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-3">1. Exercício Conceitual</h3>
+                        <p class="text-gray-700 mb-4">Explique com suas palavras a diferença entre um arquivo Excel e um banco de dados MySQL.</p>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-lg resize-none" rows="3" placeholder="Digite sua resposta aqui..."></textarea>
+                        <button onclick="showAnswer(1)" class="mt-2 px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors">
+                            Ver Resposta Modelo
+                        </button>
+                        <div id="answer-1" class="hidden mt-4 p-4 bg-green-50 rounded-lg">
+                            <p class="text-green-800"><strong>Resposta modelo:</strong> Um arquivo Excel é limitado a um usuário por vez e não possui controles de integridade, enquanto um banco MySQL permite múltiplos usuários simultâneos, garante a integridade dos dados através de regras e validações, e oferece recursos como backup automático e controle de acesso.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-3">2. Exercício Prático</h3>
+                        <p class="text-gray-700 mb-4">Crie um banco de dados chamado "teste_aula" e uma tabela "usuarios" com campos id, nome e email.</p>
+                        <div class="code-block p-3 rounded text-sm mb-3">
+                            <div class="text-green-400">-- Complete o código abaixo:</div><br>
+                            <div class="text-blue-300">CREATE DATABASE</div> _______________;<br>
+                            <div class="text-blue-300">USE</div> _______________;<br>
+                            <div class="text-blue-300">CREATE TABLE</div> _______________ (<br>
+                            &nbsp;&nbsp;_______________ <div class="text-blue-300">INT PRIMARY KEY AUTO_INCREMENT</div>,<br>
+                            &nbsp;&nbsp;_______________ <div class="text-blue-300">VARCHAR(100) NOT NULL</div>,<br>
+                            &nbsp;&nbsp;_______________ <div class="text-blue-300">VARCHAR(150) NOT NULL</div><br>
+                            );
+                        </div>
+                        <button onclick="showAnswer(2)" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                            Ver Solução
+                        </button>
+                        <div id="answer-2" class="hidden mt-4 p-4 bg-green-50 rounded-lg">
+                            <div class="code-block p-3 rounded text-sm">
+                                <div class="text-blue-300">CREATE DATABASE</div> <div class="text-yellow-300">teste_aula</div>;<br>
+                                <div class="text-blue-300">USE</div> <div class="text-yellow-300">teste_aula</div>;<br>
+                                <div class="text-blue-300">CREATE TABLE</div> <div class="text-yellow-300">usuarios</div> (<br>
+                                &nbsp;&nbsp;<div class="text-yellow-300">id</div> <div class="text-blue-300">INT PRIMARY KEY AUTO_INCREMENT</div>,<br>
+                                &nbsp;&nbsp;<div class="text-yellow-300">nome</div> <div class="text-blue-300">VARCHAR(100) NOT NULL</div>,<br>
+                                &nbsp;&nbsp;<div class="text-yellow-300">email</div> <div class="text-blue-300">VARCHAR(150) NOT NULL</div><br>
+                                );
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Exercício de Pesquisa -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">🔍 Exercício de Pesquisa</h2>
+                <div class="bg-purple-50 border-l-4 border-purple-400 p-6 rounded-lg mb-6">
+                    <h3 class="text-lg font-semibold text-purple-800 mb-3">3. Vantagens do MySQL</h3>
+                    <p class="text-gray-700 mb-4">Liste 3 vantagens de usar MySQL em projetos web:</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-6 h-6 bg-purple-200 rounded-full flex items-center justify-center text-purple-800 font-bold text-sm">1</span>
+                            <input type="text" class="flex-1 p-2 border border-gray-300 rounded-lg" placeholder="Digite a primeira vantagem...">
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-6 h-6 bg-purple-200 rounded-full flex items-center justify-center text-purple-800 font-bold text-sm">2</span>
+                            <input type="text" class="flex-1 p-2 border border-gray-300 rounded-lg" placeholder="Digite a segunda vantagem...">
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-6 h-6 bg-purple-200 rounded-full flex items-center justify-center text-purple-800 font-bold text-sm">3</span>
+                            <input type="text" class="flex-1 p-2 border border-gray-300 rounded-lg" placeholder="Digite a terceira vantagem...">
+                        </div>
+                    </div>
+                    <button onclick="showAnswer(3)" class="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors">
+                        Ver Sugestões
+                    </button>
+                    <div id="answer-3" class="hidden mt-4 p-4 bg-green-50 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Sugestões de respostas:</h4>
+                        <ul class="text-green-700 space-y-1">
+                            <li>• <strong>Performance:</strong> Otimizado para aplicações web com alta velocidade</li>
+                            <li>• <strong>Integração:</strong> Funciona perfeitamente com PHP e outras linguagens web</li>
+                            <li>• <strong>Escalabilidade:</strong> Suporta desde pequenos sites até grandes aplicações</li>
+                            <li>• <strong>Custo:</strong> Gratuito e open source</li>
+                            <li>• <strong>Comunidade:</strong> Grande comunidade e documentação extensa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Trabalho para Casa -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">🏠 Trabalho para Próxima Semana</h2>
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Pesquisa sobre SGBDs</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-green-primary mb-3">📋 Objetivo</h4>
+                            <p class="text-gray-700 mb-4">Pesquise e compare MySQL com PostgreSQL e SQLite. Crie um documento de 1 página com as principais diferenças.</p>
+                            
+                            <h4 class="text-lg font-semibold text-green-primary mb-3">🔍 Pontos a pesquisar</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span>Características principais</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span>Vantagens e desvantagens</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span>Casos de uso ideais</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="w-2 h-2 bg-green-primary rounded-full"></span>
+                                    <span>Performance e escalabilidade</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-blue-600 mb-3">📊 Formato da Entrega</h4>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <ul class="space-y-2 text-gray-700">
+                                    <li><strong>Formato:</strong> PDF ou Word</li>
+                                    <li><strong>Tamanho:</strong> 1 página</li>
+                                    <li><strong>Fonte:</strong> Arial ou Times, tamanho 12</li>
+                                    <li><strong>Prazo:</strong> Próxima aula</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                                <h5 class="font-semibold text-yellow-800">💡 Dica</h5>
+                                <p class="text-yellow-700 text-sm">Use fontes confiáveis como documentação oficial, artigos técnicos e sites especializados em tecnologia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Resumo -->
+        <div class="slide">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">📚 Resumo da Aula</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-primary mb-4">✅ O que aprendemos</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-lg">📊</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">Bancos de Dados</h4>
+                                    <p class="text-sm text-gray-600">Conceitos e importância</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-lg">🔗</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">Modelo Relacional</h4>
+                                    <p class="text-sm text-gray-600">Tabelas, chaves e relacionamentos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-lg">🐬</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">MySQL</h4>
+                                    <p class="text-sm text-gray-600">Características e vantagens</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-green-light rounded-lg">
+                                <span class="text-green-primary text-lg">📦</span>
+                                <div>
+                                    <h4 class="font-medium text-green-dark">XAMPP</h4>
+                                    <p class="text-sm text-gray-600">Instalação e configuração</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-600 mb-4">🎯 Próximos Passos</h3>
+                        <div class="space-y-3">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-blue-800">Próxima Aula</h4>
+                                <p class="text-sm text-blue-700">Comandos SQL básicos (SELECT, INSERT, UPDATE, DELETE)</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-purple-800">Projeto Prático</h4>
+                                <p class="text-sm text-purple-700">Sistema de biblioteca escolar completo</p>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-orange-800">Integração PHP</h4>
+                                <p class="text-sm text-orange-700">Conectando aplicações web ao banco</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <div class="bg-gradient-to-r from-green-primary to-blue-500 text-white p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Dúvidas?</h4>
+                                <p class="text-sm">Estou disponível para esclarecer qualquer questão!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</html>
