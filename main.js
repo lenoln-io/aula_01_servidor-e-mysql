@@ -141,3 +141,4 @@ descricao TEXT
 
 // Initialize first step
 showStep(1);
+showSlide(8);
